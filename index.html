@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" type="image/svg" href="favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,22 +15,52 @@
 
     <link rel="stylesheet" href="styles/searchform.css" />
     <link rel="stylesheet" href="styles/card.css" />
-    <link rel="stylesheet" href="styles/media.css" />
+    <link rel="stylesheet" href="styles/main.css" />
     <title>Github Profile Finder</title>
   </head>
   <body>
-    <div class="webdesigntuts-workshop">
-      <form class="user-form" id="form">
-        <input
-          type="search"
-          id="search"
-          placeholder="Enter a Github Username"
-        />
-        <button>Search</button>
-      </form>
+    <div class="container">
+      <div class="webdesigntuts-workshop">
+        <form class="user-form" id="form">
+          <input
+            type="search"
+            id="search"
+            placeholder="Enter a Github Username"
+          />
+          <button>Search</button>
+        </form>
+      </div>
+      <main id="main">
+        <div class="card">
+          <div>
+            <img
+              src="https://randomuser.me/api/portraits/men/42.jpg"
+              alt=""
+              class="avatar"
+            />
+          </div>
+          <div class="user-info">
+            <h2>John Smith</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
+              rem sapiente voluptatibus labore error esse.
+            </p>
+            <ul>
+              <li>300 <strong>Followers</strong></li>
+              <li>200 <strong>Followings</strong></li>
+              <li>20 <strong>Repos</strong></li>
+            </ul>
+            <div id="repos">
+              <a href="#" class="repo">Repo 1</a>
+              <a href="#" class="repo">Repo 2</a>
+              <a href="#" class="repo">Repo 3</a>
+              <a href="#" class="repo">Repo 4</a>
+              <a href="#" class="repo">Repo 5</a>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-
-    <main id="main"></main>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
