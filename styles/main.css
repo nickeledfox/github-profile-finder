@@ -10,13 +10,13 @@
 body {
   background: #151515;
   color: #fff;
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Inter", sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   margin: 0;
 }
 .container {
@@ -24,7 +24,11 @@ body {
   justify-content: center;
   flex-direction: column;
 }
-
+@media (max-width: 960px) {
+  .card {
+    max-width: 85vw;
+  }
+}
 @media (max-width: 700px) {
   .card {
     flex-direction: column;
@@ -46,10 +50,22 @@ body {
   }
 }
 
+@media (max-width: 690px) {
+  .info {
+    width: 100%;
+  }
+}
+
 @media (max-width: 430px) {
+  .webdesigntuts-workshop:before {
+    display: none;
+  }
   .card {
     padding: 1.5rem;
     font-size: 0.7rem;
+    max-width: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
   }
   .user-info {
     padding: 0;
