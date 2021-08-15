@@ -1,9 +1,27 @@
-const API_ENDPOINT = 'https://api.github.com/users/';
+'use strict';
 
-function getUser(username) {
-  axios
-    .get(API_ENDPOINT + username)
-    .then((response) => console.log(response.data))
-    .catch((error) => console.log(error));
+const USERS = 'https://api.github.com/users/';
+
+const form = document.getElementById('form');
+const search = document.getElementById('search');
+
+async function getUser(username) {
+  try {
+    const response = await axios.get(USERS + username);
+    console.log(response.data);
+  } catch (err) {
+    console.warn(err);
+  }
 }
-getUser('mia-7-7');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const user = search.value;
+
+  if (user) {
+    getUser(user);
+
+    search.value = '';
+  }
+});
