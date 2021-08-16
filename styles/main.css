@@ -26,8 +26,8 @@ body {
 }
 
 .error {
-  font-size: 2.5rem;
-  padding: 1rem;
+  font-size: 2.3rem;
+  padding: 1.5rem 1rem;
   display: flex;
   justify-content: center;
   text-align: center;
