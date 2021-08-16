@@ -11,13 +11,15 @@ const getUser = async (username) => {
     const response = await axios.get(USERS + username);
     userCard(response.data);
   } catch (err) {
-    console.warn(err);
+    if (err.response.status == 404) {
+      showError('Profile not found');
+    }
   }
 };
 
 const userCard = (user) => {
   const card = `
-<div class="card">
+      <div class="card">
           <div class="accaunt">
             <img
               src="${user.avatar_url}"
@@ -30,8 +32,8 @@ const userCard = (user) => {
           <div class="user-info">
             <h2>${user.name}</h2>
             <div class="info">
-              <div class="location"><i class="fas fa-map-marker-alt"></i>${user.location}</div>
-              <div class="company"><i class="fas fa-building"></i>${user.company}</div>
+              <div class="location"><i class="fas fa-map-marker-alt"></i>Location: <span>${user.location}</span></div>
+              <div class="company"><i class="fas fa-building"></i>Company: <span>${user.company}</span></div>
             </div>
             <p>
             ${user.bio}
@@ -46,6 +48,13 @@ const userCard = (user) => {
         </div>
 `;
   main.innerHTML = card;
+};
+
+const showError = (messege) => {
+  const errorMessage = `
+  <span class="error">${messege}</span>
+  `;
+  main.innerHTML = errorMessage;
 };
 
 form.addEventListener('submit', (e) => {

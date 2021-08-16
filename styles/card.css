@@ -28,16 +28,21 @@
 }
 .fa,
 .fas {
-  margin-right: 7px;
+  margin-right: 0.7rem;
   color: #888;
 }
 .location,
 .company {
-  padding: 0 auto;
+  font-weight: 200;
+  font-size: 0.8rem;
 }
 .location {
-  font-weight: 200;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+}
+.location span,
+.company span {
+  font-weight: 400;
+  margin-left: 3px;
 }
 
 .accaunt {
@@ -68,6 +73,7 @@
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   font-weight: 600;
+  font-size: 1.7rem;
 }
 
 .user-info ul {

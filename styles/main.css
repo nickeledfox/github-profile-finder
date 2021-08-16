@@ -24,6 +24,16 @@ body {
   justify-content: center;
   flex-direction: column;
 }
+
+.error {
+  font-size: 2.5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-shrink: 2;
+}
+
 @media (max-width: 960px) {
   .card {
     max-width: 85vw;
