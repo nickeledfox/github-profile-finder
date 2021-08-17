@@ -20,7 +20,9 @@ const getUser = async (username) => {
 
 const getRepos = async (username) => {
   try {
-    const response = await axios.get(API_ENDPOINT + username + '/repos');
+    const response = await axios.get(
+      API_ENDPOINT + username + '/repos?sort=created'
+    );
     reposToCard(response.data);
   } catch (err) {
     console.warn('Repo not found');
