@@ -33,7 +33,11 @@ body {
   text-align: center;
   flex-shrink: 2;
 }
-
+@media (min-width: 1200px) {
+  .card {
+    max-width: 30vw;
+  }
+}
 @media (max-width: 960px) {
   .card {
     max-width: 85vw;

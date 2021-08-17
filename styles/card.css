@@ -28,7 +28,7 @@
 }
 .fa,
 .fas {
-  margin-right: 0.7rem;
+  margin-right: 0.5rem;
   color: #888;
 }
 .location,
@@ -42,6 +42,7 @@
 .location span,
 .company span {
   font-weight: 400;
+  font-size: 0.9rem;
   margin-left: 3px;
 }
 
@@ -99,6 +100,7 @@
 .username {
   color: #888;
   font-weight: 300;
+  padding: 10px 5px;
 }
 
 .repo {
