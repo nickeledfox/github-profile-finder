@@ -10,7 +10,7 @@ const getUser = async (username) => {
   try {
     const response = await axios.get(API_ENDPOINT + username);
     userCard(response.data);
-    getRepo(username);
+    getRepos(username);
   } catch (err) {
     if (err.response.status == 404) {
       showError('Profile not found');
@@ -18,7 +18,7 @@ const getUser = async (username) => {
   }
 };
 
-const getRepo = async (username) => {
+const getRepos = async (username) => {
   try {
     const response = await axios.get(API_ENDPOINT + username + '/repos');
     reposToCard(response.data);
