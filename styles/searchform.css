@@ -4,6 +4,7 @@
   margin-bottom: 2rem;
   font-family: inherit;
   position: reletive;
+  font-family: "Roboto Mono", monospace;
 }
 
 /* taken from "https://codepen.io/jackrugile/pen/ABeIi?editors=1100" */
@@ -112,6 +113,7 @@
   width: 80px;
   transition: all 0.3s ease;
   cursor: pointer;
+  font-family: "Roboto Mono", monospace;
 }
 
 .webdesigntuts-workshop button:hover,

@@ -32,6 +32,8 @@ body {
   justify-content: center;
   text-align: center;
   flex-shrink: 2;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
 }
 @media (min-width: 1200px) {
   .card {
