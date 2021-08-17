@@ -1,6 +1,6 @@
 'use strict';
 
-const USERS = 'https://api.github.com/users/';
+const API_ENDPOINT = 'https://api.github.com/users/';
 
 const form = document.getElementById('form');
 const search = document.getElementById('search');
@@ -8,12 +8,22 @@ const main = document.getElementById('main');
 
 const getUser = async (username) => {
   try {
-    const response = await axios.get(USERS + username);
+    const response = await axios.get(API_ENDPOINT + username);
     userCard(response.data);
+    getRepo(username);
   } catch (err) {
     if (err.response.status == 404) {
       showError('Profile not found');
     }
+  }
+};
+
+const getRepo = async (username) => {
+  try {
+    const response = await axios.get(API_ENDPOINT + username + '/repos');
+    reposToCard(response.data);
+  } catch (err) {
+    console.warn('Repo not found');
   }
 };
 
@@ -35,18 +45,18 @@ const userCard = (user) => {
               <div class="location"><i class="fas fa-map-marker-alt"></i>Location: <span>${
                 user.location == null ? 'Earth' : user.location
               }</span></div>
-              <div class="company"><i class="fas fa-building"></i>Company: <span>${
-                user.company == null ? 'Not mentioned' : user.company
+              <div class="company"><i class="fas fa-building"></i>Work: <span>${
+                user.company == null ? 'Unknown' : user.company
               }</span></div>
             </div>
             <p>
             ${user.bio == null ? '' : user.bio}
             </p>
             <ul>
-              <li><i class="fas fa-user-users"></i>${
+              <li><i class="fas fa-users"></i>${
                 user.followers
               } <strong>Followers</strong></li>
-              <li><i class="fas fa-friends"></i></i>${
+              <li><i class="fas fa-user-friends"></i>${
                 user.following
               } <strong>Followings</strong></li>
               <li><i class="fas fa-file-code"></i>${
@@ -60,6 +70,20 @@ const userCard = (user) => {
   if (user.value !== null) {
     main.innerHTML = card;
   }
+};
+
+const reposToCard = (repos) => {
+  const userRepos = document.getElementById('repos');
+
+  repos.slice(0, 6).forEach((repo) => {
+    const userRepo = document.createElement('a');
+    userRepo.classList.add('repo');
+    userRepo.href = repo.html_url;
+    userRepo.target = '_blank';
+    userRepo.innerText = repo.name;
+
+    userRepos.appendChild(userRepo);
+  });
 };
 
 const showError = (messege) => {
